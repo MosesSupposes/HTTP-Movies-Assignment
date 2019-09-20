@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { Route } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 import axios from 'axios';
 
 import SavedList from "./Movies/SavedList";
 import MovieList from "./Movies/MovieList";
 import Movie from "./Movies/Movie";
 import UpdateMovieForm from './Forms/UpdateMovie'
+import AddMovieForm from './Forms/AddMovieForm'
 
 
 const App = (props) => {
@@ -28,6 +29,7 @@ const App = (props) => {
   return (
     <>
       <SavedList list={savedList} />
+      <Link to="/add-movie">Add movie</Link>
       <Route 
         exact 
         path="/" 
@@ -47,6 +49,7 @@ const App = (props) => {
         path="/update-movie/:id" 
         component={UpdateMovieForm} 
       />
+      <Route path="/add-movie" component={AddMovieForm} />
     </>
   );
 };
